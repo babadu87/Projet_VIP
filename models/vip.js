@@ -22,10 +22,10 @@ module.exports.getPremiereLettre = function(callback){
 	});
 };
 
-module.exports.getStars = function(callback){
+module.exports.getStars = function(lettre,callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT VIP_NOM,VIP_PRENOM, PHOTO_ADRESSE FROM vip v inner join photo p on p.VIP_NUMERO=v.VIP_NUMERO where VIP_NOM LIKE 'A%';";
+			var sql = "SELECT distinct VIP_NOM as nom,VIP_PRENOM as prenom, PHOTO_ADRESSE as image FROM vip v inner join photo p on p.VIP_NUMERO=v.VIP_NUMERO where VIP_NOM LIKE '"+lettre+"%';";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();

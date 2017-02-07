@@ -19,6 +19,13 @@ module.exports.Repertoire = function(request, response){
 module.exports.RepertoireLettre = function(request, response){
 	var data = request.params.lettre;
 	response.title = 'Répertoire des stars';
-	response.res = data;
+	response.data = data;
+	model.getStars(data,function(err, result){  // appel le module test qui exécute la requete SQL
+    if (err) {
+         console.log(err);
+         return;
+    }
+	response.res = result;
 	response.render('repertoireVips', response);
+	} );
 }

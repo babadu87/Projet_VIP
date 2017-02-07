@@ -10,8 +10,8 @@ var mysql = require('mysql'); // voir https://github.com/felixge/node-mysql/
 
 var pool  = mysql.createPool({
   host     : 'localhost',
-  user     : 'bd',
-  password : 'bede',
+  user     : 'root',
+  password : '',
   database : 'vip',
   port : "3306"
 });

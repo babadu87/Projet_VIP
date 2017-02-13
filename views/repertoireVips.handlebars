@@ -1,4 +1,5 @@
 <h1> Mettre ici la première lettre du nom des VIPs </h1>
+{{> ListeLettre}}
 {{#if this.data}}
 	{{# each res}}
 		<div style="display: inline-block">
@@ -7,7 +8,4 @@
 		</div>
 	{{/each}}
 {{else}}
-	Cliquer sur une lettre : {{#each lettres}} 
-	<a href= "repertoire/{{this.lettre}}" >{{this.lettre}} </a> 
-{{/each}}
 {{/if}}

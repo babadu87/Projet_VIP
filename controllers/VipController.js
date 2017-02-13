@@ -1,4 +1,3 @@
-
 var async = require("async");
 var model = require("../models/vip.js");
 
@@ -41,12 +40,3 @@ module.exports.RepertoireLettre = function(request, response){
 	response.render('repertoireVips', response);
 	} );
 }
-
-/*
-
-model.getStars(data,function(err, result){  // appel le module test qui exécute la requete SQL
-	if (err) {
-			 console.log(err);
-			 return;
-	}
-	*/

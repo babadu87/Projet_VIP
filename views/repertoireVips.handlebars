@@ -1,16 +1,16 @@
-<h1> Mettre ici la première lettre du nom des VIPs </h1>
+
 {{#if this.data}}
 	<p>Cliquer sur une autre lettre : {{#each lettres}}
-	<a href= "repertoire/{{this.lettre}}" >{{this.lettre}} </a></p>
+	<a href= "/repertoire/{{this.lettre}}" >{{this.lettre}} </a></p>
 	{{/each}}
 	{{# each res}}
 		<div style="display: inline-block">
-			<a href= "repertoire/"><img src="/images/vip/{{this.image}}"></a>
+			<a href= "/repertoire/"><img src="/images/vip/{{this.image}}"></a>
 			<p>{{this.nom}} {{this.prenom}}</p>
 		</div>
 	{{/each}}
 {{else}}
 	Cliquer sur une lettre : {{#each lettres}}
-	<a href= "repertoire/{{this.lettre}}" >{{this.lettre}} </a>
+	<a href= "/repertoire/{{this.lettre}}" >{{this.lettre}} </a>
 {{/each}}
 {{/if}}

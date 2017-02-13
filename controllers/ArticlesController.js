@@ -4,7 +4,7 @@ var model = require("../models/vip.js");
 ////////// Article //////////////////////////
 
 module.exports.listeNom = function(request, response){
-	response.title = 'Répertoire des stars';
+	response.title = 'Liste des VIPs';
 	model.getNomVip(function(err, result){  // appel le module test qui exécute la requete SQL
     if (err) {
          console.log(err);
@@ -14,7 +14,7 @@ module.exports.listeNom = function(request, response){
 	response.nom = result;
 	response.render('articles', response);
 } );
-}
+};
 
 module.exports.articles = function(request, response){
 	var data = request.params.nom;
@@ -38,4 +38,4 @@ module.exports.articles = function(request, response){
 	response.res = result[1];
 	response.render('articles', response);
 	} );
-}
+};

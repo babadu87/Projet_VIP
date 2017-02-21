@@ -1,13 +1,23 @@
+var async = require("async");
+var model = require("../models/vip.js");
 
 // ////////////////////// L I S T E R     A L B U M S
 
 module.exports.ListerAlbum = 	function(request, response){
    response.title = 'Album des stars';
-   response.render('listerAlbum', response);
-  } ;
+   model.getPhotoVip(function(err, result){  // appel le module test qui exécute la requete SQL
+     if (err) {
+          console.log(err);
+          return;
+     }
 
+ 	response.photo = result;
+ 	response.render('listerAlbum', response);
+ } );
+};
+/*
 
-module.exports.RepertoireLettre = function(request, response){
+module.exports.Album = function(request, response){
 	var data = request.params.lettre;
 	response.title = 'Répertoire des stars';
 	response.data = data;
@@ -30,3 +40,4 @@ module.exports.RepertoireLettre = function(request, response){
 	response.render('repertoireVips', response);
 	} );
 }
+*/

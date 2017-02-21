@@ -21,16 +21,17 @@ module.exports = function(app){
 // VIP/lettre
 	app.get('/repertoire/:lettre', VipController.RepertoireLettre)
 
-
 // articles
 	app.get('/articles', ArticlesController.listeNom)
 
-
-// articles
-	app.get('/articles/:idV/:nom/', ArticlesController.articles)
+// vip articles
+	app.get('/articles/:idV/:nom', ArticlesController.articles)
 
 // albums
  app.get('/album', AlbumController.ListerAlbum);
+
+//Vip album
+app.get('/album/:numV', AlbumController.ListerAlbum);
 
 // tout le reste
   app.get('*', HomeController.Index);

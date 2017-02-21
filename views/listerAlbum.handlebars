@@ -1,10 +1,18 @@
 {{#if this.data}}
+
+<!--
  <a href="#">précédent</a>
  <p> ici la tronche du mec </p>
  <a href="#">suivant</a>
+--> <p> COUCOU </p>
 
 {{else}}
-	Cliquer sur une image : {{#each lettres}}
-	<a href= "/album/{{this.image}}" >{{this.lettre}} </a>
-{{/each}}
+	Cliquer sur une image :
+<br><br><br><br>
+    {{#each photo}}
+        <a href= "/album/{{this.numV}}" ><img src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+    {{/each}}
+    <br><br><br><br>
+
+
 {{/if}}

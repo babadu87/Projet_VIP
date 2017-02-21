@@ -1,1 +1,10 @@
-<h1> Mettre ici l'album photo des stars </h1>
+{{#if this.data}}
+ <a href="#">précédent</a>
+ <p> ici la tronche du mec </p>
+ <a href="#">suivant</a>
+
+{{else}}
+	Cliquer sur une image : {{#each lettres}}
+	<a href= "/album/{{this.image}}" >{{this.lettre}} </a>
+{{/each}}
+{{/if}}

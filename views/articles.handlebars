@@ -1,0 +1,26 @@
+{{#if this.data}}
+  <p> VIPs : {{#each nom}}
+  <a href= "/articles/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
+  {{/each}}
+
+  <h1> Articles </h1>
+  {{# each res}}
+      <h2> {{this.titre}}</h2>
+      <p>{{this.nom}} {{this.prenom}}</p>
+      {{this.resume}}
+      <a href="/repertoire/{{this.lettre}}/{{this.id}}"> voir sa fiche</a> 
+  {{/each}}
+
+
+{{else}}
+
+	<p>Choisissez un vip pour voir les articles le concernant</p>
+
+  <div id="listeNom">
+    <p> VIPs : <br>
+    {{#each nom}}
+    <a href= "/articles/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
+    {{/each}}
+  </div><!-- fin div id=listeNom -->
+
+{{/if}}

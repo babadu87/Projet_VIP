@@ -5,6 +5,7 @@ var express         = require('express'),
     http            = require('http'),
     path            = require('path');
 
+
 var app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -15,7 +16,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cookieParser());
-
 
 app.use(session({
     secret: 'nC0@#1pM/-0qA1+é',
@@ -36,9 +36,7 @@ app.set('view engine', 'handlebars'); //nom de l'extension des fichiers
 var handlebars  = require('./helpers/handlebars.js')(exphbs); //emplacement des helpers
 // helpers : extensions d'handlebars
 
-
 app.engine('handlebars', handlebars.engine);
-
 
 
 // chargement du routeur

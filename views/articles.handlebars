@@ -1,14 +1,16 @@
 {{#if this.data}}
-  <p> VIPs : {{#each nom}}
-  <a href= "/articles/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
+
+<p> VIPs : {{#each idV}}
+  <a href= "/articles/{{this.idVIP}}/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
   {{/each}}
 
   <h1> Articles </h1>
   {{# each res}}
+
       <h2> {{this.titre}}</h2>
       <p>{{this.nom}} {{this.prenom}}</p>
       {{this.resume}}
-      <a href="/repertoire/{{this.lettre}}/{{this.id}}"> voir sa fiche</a> 
+      <a href="#"> voir sa fiche</a>
   {{/each}}
 
 
@@ -18,8 +20,8 @@
 
   <div id="listeNom">
     <p> VIPs : <br>
-    {{#each nom}}
-    <a href= "/articles/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
+    {{#each idVIP}}
+    <a href= "/articles/{{this.idVIP}}/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
     {{/each}}
   </div><!-- fin div id=listeNom -->
 

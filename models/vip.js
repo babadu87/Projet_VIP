@@ -36,7 +36,7 @@ module.exports.getStars = function(lettre,callback){
 module.exports.getNomVip = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT v.VIP_NUMERO as id, VIP_NOM as nom, VIP_PRENOM as prenom FROM vip order by nom ASC;";
+			var sql = "SELECT DISTINCT  VIP_NOM as nom, VIP_PRENOM as prenom,VIP_NUMERO as idVIP FROM vip order by nom,idVIP ASC;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
@@ -44,11 +44,11 @@ module.exports.getNomVip = function(callback){
 	});
 };
 
-module.exports.getArticlesVip = function(nom,callback){
+module.exports.getArticlesVip = function(idV,callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT distinct v.VIP_NUMERO as id, SUBSTRING(v.VIP_NOM,1,1) as lettre, v.VIP_NOM as nom,v.VIP_PRENOM as prenom, aps.ARTICLE_NUMERO as num, a.ARTICLE_TITRE as titre, a.ARTICLE_RESUME as resume from VIP v join APOURSUJET aps on aps.VIP_NUMERO=v.VIP_NUMERO join ARTICLE a on a.ARTICLE_NUMERO = aps.ARTICLE_NUMERO where VIP_NUMERO = '"+id+"' group by v.VIP_NUMERO, num;";
-			console.log(sql);
+      var sql = "SELECT distinct v.VIP_NUMERO as id, v.VIP_NOM as nom,v.VIP_PRENOM as prenom, aps.ARTICLE_NUMERO as num, a.ARTICLE_TITRE as titre, a.ARTICLE_RESUME as resume from VIP v join APOURSUJET aps on aps.VIP_NUMERO=v.VIP_NUMERO join ARTICLE a on a.ARTICLE_NUMERO = aps.ARTICLE_NUMERO where v.VIP_NUMERO = '"+idV+"' group by num,id;";
+ 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
 		}

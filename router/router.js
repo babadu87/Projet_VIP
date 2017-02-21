@@ -27,7 +27,7 @@ module.exports = function(app){
 
 
 // articles
-	app.get('/articles/:nom/', ArticlesController.articles)
+	app.get('/articles/:idV/:nom/', ArticlesController.articles)
 
 // albums
  app.get('/album', AlbumController.ListerAlbum);

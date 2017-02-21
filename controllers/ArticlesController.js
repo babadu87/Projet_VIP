@@ -11,13 +11,13 @@ module.exports.listeNom = function(request, response){
          return;
     }
 
-	response.nom = result;
+	response.idVIP = result;
 	response.render('articles', response);
 } );
-};
+}
 
 module.exports.articles = function(request, response){
-	var data = request.params.nom;
+	var data = request.params.idV;
 	response.title = 'Articles';
 	response.data = data;
 	async.parallel([
@@ -34,8 +34,8 @@ module.exports.articles = function(request, response){
 				 return;
 		}
 
-	response.nom = result[0];
+	response.idV = result[0];
 	response.res = result[1];
 	response.render('articles', response);
 	} );
-};
+}

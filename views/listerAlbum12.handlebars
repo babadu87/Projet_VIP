@@ -10,10 +10,13 @@
 	Cliquer sur une image :
 <br><br><br><br>
     {{#each photo}}
-        <a href= "/album/{{this.numV}}" ><img src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+        <a href= "/album/Album2/{{this.numV}}" ><img src="/images/vip/{{this.photo}}" height="100" width="100"></a>
     {{/each}}
     <br><br>
-		<button><a href= "/album/Album2" > Suivant ></a></button>
+
+		<button><a href= "/album" >  << Début </a></button>
+		<button><a href= "/album" > < Précédent </a></button>
+		<button><a href= "/album/Album3" > Suivant ></a></button>
 		<button><a href= "/album/Album3" > Fin >> </a></button>
 
 

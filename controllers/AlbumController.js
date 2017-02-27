@@ -5,7 +5,7 @@ var model = require("../models/vip.js");
 
 module.exports.ListerAlbum = 	function(request, response){
    response.title = 'Album des stars';
-   model.getPhotoVip(function(err, result){  // appel le module test qui exécute la requete SQL
+   model.getPhotoVip0(function(err, result){  // appel le module test qui exécute la requete SQL
      if (err) {
           console.log(err);
           return;
@@ -13,6 +13,44 @@ module.exports.ListerAlbum = 	function(request, response){
 
  	response.photo = result;
  	response.render('listerAlbum', response);
+ } );
+};
+
+module.exports.ListerAlbum12 = 	function(request, response){
+   response.title = 'Album des stars';
+   model.getPhotoVip12(function(err, result){  // appel le module test qui exécute la requete SQL
+     if (err) {
+          console.log(err);
+          return;
+     }
+
+ 	response.photo = result;
+ 	response.render('listerAlbum12', response);
+ } );
+};
+
+module.exports.ListerAlbum24 = 	function(request, response){
+   response.title = 'Album des stars';
+   model.getPhotoVip36(function(err, result){  // appel le module test qui exécute la requete SQL
+     if (err) {
+          console.log(err);
+          return;
+     }
+
+ 	response.photo = result;
+ 	response.render('listerAlbum24', response);
+ } );
+};
+module.exports.ListerAlbum36 = 	function(request, response){
+   response.title = 'Album des stars';
+   model.getPhotoVip48(function(err, result){  // appel le module test qui exécute la requete SQL
+     if (err) {
+          console.log(err);
+          return;
+     }
+
+ 	response.photo = result;
+ 	response.render('listerAlbum36', response);
  } );
 };
 /*

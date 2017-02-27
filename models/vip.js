@@ -55,10 +55,54 @@ module.exports.getArticlesVip = function(idV,callback){
 	});
 };
 
-module.exports.getPhotoVip = function(callback){
+module.exports.getPhotoVip0 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC;";
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12;";
+			console.log(sql);
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+};
+
+module.exports.getPhotoVip12 = function(callback){
+	db.getConnection(function(err,connexion){
+		if (!err) {
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 12;";
+			console.log(sql);
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+};
+
+module.exports.getPhotoVip24 = function(callback){
+	db.getConnection(function(err,connexion){
+		if (!err) {
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 24;";
+			console.log(sql);
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+};
+
+module.exports.getPhotoVip36 = function(callback){
+	db.getConnection(function(err,connexion){
+		if (!err) {
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 36;";
+			console.log(sql);
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+};
+
+module.exports.getPhotoVip48 = function(callback){
+	db.getConnection(function(err,connexion){
+		if (!err) {
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 48;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();

@@ -11,7 +11,7 @@ module.exports.ListerAlbum = 	function(request, response){
           return;
      }
 
- 	response.photo = result;
+ 	response.numV = result;
  	response.render('listerAlbum', response);
  } );
 };
@@ -24,7 +24,7 @@ module.exports.ListerAlbum12 = 	function(request, response){
           return;
      }
 
- 	response.photo = result;
+ 	response.numV = result;
  	response.render('listerAlbum12', response);
  } );
 };
@@ -37,7 +37,7 @@ module.exports.ListerAlbum24 = 	function(request, response){
           return;
      }
 
- 	response.photo = result;
+ 	response.numV = result;
  	response.render('listerAlbum24', response);
  } );
 };
@@ -49,22 +49,22 @@ module.exports.ListerAlbum36 = 	function(request, response){
           return;
      }
 
- 	response.photo = result;
+ 	response.numV = result;
  	response.render('listerAlbum36', response);
  } );
 };
-/*
 
-module.exports.Album = function(request, response){
-	var data = request.params.lettre;
+
+module.exports.ListerPhotos = function(request, response){
+	var data = request.params.numV;
 	response.title = 'Répertoire des stars';
 	response.data = data;
 	async.parallel([
 		function(callback){
-			model.getPremiereLettre(function(err,resultL){callback(null,resultL) });
+			model.getPhotoVip0(function(err,resultL){callback(null,resultL) });
 		},
 		function(callback){
-			model.getStars(data,(function(errL,result){callback(null,result)}));
+			model.getCommentairesPhotos(data,(function(errL,result){callback(null,result)}));
 		},
 	],
 	function(err,result){
@@ -73,9 +73,8 @@ module.exports.Album = function(request, response){
 				 return;
 		}
 
-	response.lettres = result[0];
+	response.numV = result[0];
 	response.res = result[1];
-	response.render('repertoireVips', response);
+	response.render('listerAlbum', response);
 	} );
 }
-*/

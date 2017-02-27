@@ -58,7 +58,7 @@ module.exports.getArticlesVip = function(idV,callback){
 module.exports.getPhotoVip0 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12;";
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO as num,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
@@ -69,7 +69,7 @@ module.exports.getPhotoVip0 = function(callback){
 module.exports.getPhotoVip12 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 12;";
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO as num,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 12;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
@@ -80,7 +80,7 @@ module.exports.getPhotoVip12 = function(callback){
 module.exports.getPhotoVip24 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 24;";
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO as num,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 24;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
@@ -91,7 +91,7 @@ module.exports.getPhotoVip24 = function(callback){
 module.exports.getPhotoVip36 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 36;";
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO as num,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 36;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();
@@ -102,7 +102,18 @@ module.exports.getPhotoVip36 = function(callback){
 module.exports.getPhotoVip48 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 48;";
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO as num,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC LIMIT 12 OFFSET 48;";
+			console.log(sql);
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+};
+
+module.exports.getCommentairesPhotos = function(numV,callback){
+	db.getConnection(function(err,connexion){
+		if (!err) {
+			var sql = "SELECT distinct v.VIP_NUMERO as numV, v.VIP_NOM as nom,v.VIP_PRENOM as prenom, p.PHOTO_NUMERO as num , p.PHOTO_SUJET as sujet, p.PHOTO_ADRESSE as photo, p.PHOTO_COMMENTAIRE as com from VIP v join PHOTO p on p.VIP_NUMERO=v.VIP_NUMERO where v.VIP_NUMERO = '"+numV+"' group by num,numV;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();

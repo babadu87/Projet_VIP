@@ -1,17 +1,36 @@
 {{#if this.data}}
 
-<!--
  <a href="#">précédent</a>
- <p> ici la tronche du mec </p>
- <a href="#">suivant</a>
---> <p> COUCOU </p>
+	 <div id="vipab">
+	 {{#each numV}}
+			 <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+	 {{/each}}
+	 </div><!-- fin div vipab> -->
+	 <br><br>
+	 <div id="vipab">
+		 <br><br>
+	 {{#each res}}
+
+			<p>{{this.nom}} {{this.prenom}}</p>
+			<a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+			<h1> Commentaire </h1>
+
+			<h2> {{this.sujet}}</h2>
+			{{this.com}}
+			<a href="#"> voir sa fiche</a>
+		{{/each}}
+
+		<a href="/album/{{this.numV}}">suivant</a>
+ </div><!-- fin div vipab> -->
+
+
 
 {{else}}
 	Cliquer sur une image :
 <br><br><br><br>
 		<div id="vipab">
-    {{#each photo}}
-        <a href= "/album/{{this.numV}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+    {{#each numV}}
+        <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
     {{/each}}
 	</div><!-- fin div vipab> -->
     <br><br>

@@ -81,3 +81,12 @@ a  {
 .traitVertical {
   border-left: 1px white solid;
 }
+
+#vipab{
+  margin-left: 28em;
+  width: 40em;
+}
+
+button{
+  height: 2em;
+}

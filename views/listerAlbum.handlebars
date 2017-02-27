@@ -9,9 +9,11 @@
 {{else}}
 	Cliquer sur une image :
 <br><br><br><br>
+		<div id="vipab">
     {{#each photo}}
-        <a href= "/album/{{this.numV}}" ><img src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+        <a href= "/album/{{this.numV}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
     {{/each}}
+	</div><!-- fin div vipab> -->
     <br><br>
 		<button><a href= "/album/Album2" > Suivant ></a></button>
 		<button><a href= "/album/Album3" > Fin >> </a></button>

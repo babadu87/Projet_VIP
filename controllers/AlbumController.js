@@ -61,7 +61,7 @@ module.exports.ListerPhotos = function(request, response){
 	response.data = data;
 	async.parallel([
 		function(callback){
-			model.getPhotoVip0(function(err,resultL){callback(null,resultL) });
+			model.getPhotoVip(function(err,resultL){callback(null,resultL) });
 		},
 		function(callback){
 			model.getCommentairesPhotos(data,(function(errL,result){callback(null,result)}));

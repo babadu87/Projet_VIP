@@ -57,6 +57,17 @@ module.exports.getArticlesVip = function(idV,callback){
 	});
 };
 
+module.exports.getPhotoVip = function(callback){
+	db.getConnection(function(err,connexion){
+		if (!err) {
+			var sql = "SELECT DISTINCT p.VIP_NUMERO as numV,p.PHOTO_NUMERO as num,p.PHOTO_ADRESSE as photo, v.VIP_NOM FROM PHOTO p JOIN VIP v on v.VIP_NUMERO = p.VIP_NUMERO where p.PHOTO_NUMERO =1 order by v.VIP_NOM,numV ASC;";
+			console.log(sql);
+			connexion.query(sql, callback);
+			connexion.release();
+		}
+	});
+};
+
 module.exports.getPhotoVip0 = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {

@@ -1,23 +1,19 @@
 {{#if this.data}}
 
-<!--
- <a href="#">précédent</a>
- <p> ici la tronche du mec </p>
- <a href="#">suivant</a>
---> <p> COUCOU </p>
+<p> Une erreur est survenue <a href= "/album/" >cliquer ici ! </a></p>
 
 {{else}}
 	Cliquer sur une image :
 <br><br><br><br>
 		<div id="vipab">
     {{#each numV}}
-        <a href= "/album/Album3/{{this.numV}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+        <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
     {{/each}}
 	</div><!-- fin div vipab> -->
     <br><br>
 
 		<button><a href= "/album" >  << Début </a></button>
-		<button><a href= "/album/Album2" > < Précédent </a></button>
+		<button><a href= "/album:2" > < Précédent </a></button>
 
 
 {{/if}}

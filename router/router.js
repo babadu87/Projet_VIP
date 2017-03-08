@@ -26,10 +26,10 @@ module.exports = function(app){
 	app.get('/articles/:idV/:nom', ArticlesController.articles)
 
 // albums
- app.get('/album/', AlbumController.ListerAlbum);
- app.get('/album/Album2', AlbumController.ListerAlbum12);
- app.get('/album/Album3', AlbumController.ListerAlbum24);
- app.get('/album/Album4', AlbumController.ListerAlbum36);
+ app.get('/album', AlbumController.ListerAlbum);
+ app.get('/album:2', AlbumController.ListerAlbum12);
+ app.get('/album:3', AlbumController.ListerAlbum24);
+ app.get('/album:4', AlbumController.ListerAlbum36);
 
  //Vip album
  //app.get('/album/:numV', AlbumController.ListerPhotos);

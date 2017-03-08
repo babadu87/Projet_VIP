@@ -1,13 +1,9 @@
 {{#if this.data}}
 
  <a href="#">précédent</a>
-	 <div id="vipab">
-	 {{#each numV}}
-			 <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
-	 {{/each}}
-	 </div><!-- fin div vipab> -->
+
 	 <br><br>
-	 <div id="vipab">
+	 <div id="vipphoto">
 		 <br><br>
 	 {{#each res}}
 
@@ -20,7 +16,13 @@
 			<a href="#"> voir sa fiche</a>
 		{{/each}}
 
-		<a href="/album/{{this.numV}}">suivant</a>
+		<a href="/album/{{this.numV}}/{{this.num}}">suivant</a>
+ </div><!-- fin div vipphoto> -->
+
+ <div id="vipab">
+ {{#each numV}}
+     <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="50" width="50"></a>
+ {{/each}}
  </div><!-- fin div vipab> -->
 
 
@@ -33,8 +35,8 @@
     {{/each}}
 	</div><!-- fin div vipab> -->
     <br><br>
-		<button><a href= "/album/Album2" > Suivant ></a></button>
-		<button><a href= "/album/Album3" > Fin >> </a></button>
+		<button><a href= "/album:2" > Suivant ></a></button>
+		<button><a href= "/album:3" > Fin >> </a></button>
 
 
 {{/if}}

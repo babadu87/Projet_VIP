@@ -27,14 +27,15 @@ module.exports = function(app){
 
 // albums
  app.get('/album', AlbumController.ListerAlbum);
- app.get('/album:2', AlbumController.ListerAlbum12);
- app.get('/album:3', AlbumController.ListerAlbum24);
- app.get('/album:4', AlbumController.ListerAlbum36);
+ app.get('/album-2', AlbumController.ListerAlbum12);
+ app.get('/album-3', AlbumController.ListerAlbum24);
+ app.get('/album-4', AlbumController.ListerAlbum36);
+ app.get('/album-5', AlbumController.ListerAlbum48);
 
- //Vip album
- //app.get('/album/:numV', AlbumController.ListerPhotos);
 //VIP photos
-  app.get('/album/:numV/:num', AlbumController.ListerPhotos);
+  app.get('/album/:numV/1', AlbumController.ListerPhotos1);
+    app.get('/album/:numV/2', AlbumController.ListerPhotos2);
+      app.get('/album/:numV/3', AlbumController.ListerPhotos3);
 
 // tout le reste
   app.get('*', HomeController.Index);

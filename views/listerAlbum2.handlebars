@@ -1,23 +1,32 @@
 {{#if this.data}}
 
-{{#each res}}
+{{#if  res}}
+ {{#each res}}
+ <button><a href="/album/{{this.numV}}/1">précédent</a></button>
 
  <br><br><br>
 
-	 <div id="vipphoto">
-		 <br><br>
-			<p>{{this.nom}} {{this.prenom}}</p><br>
+  <div id="vipphoto">
+    <br><br>
+     <p>{{this.nom}} {{this.prenom}}</p><br>
       <img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"><br>
-			<h1> Commentaire </h1><br>
+     <h1> Commentaire </h1><br>
 
-			<h2> {{this.sujet}}</h2><br>
-			{{this.com}}<br><br>
-			<a href="#"> voir sa fiche</a>
+     <h2> {{this.sujet}}</h2><br>
+     {{this.com}}<br><br>
+     <a href="#"> voir sa fiche</a>
 
     <br><br><br>
 
-		<button><a href="/album/{{this.numV}}/2">suivant</a></button>
-  {{/each}}
+   <button><a href="/album/{{this.numV}}/3">suivant</a></button>
+
+      {{/each}}
+  {{else}}
+    <p> Pas d'autre photos disponible  <a href= "/album/" >cliquer ici ! </a></p>
+ {{/if}}
+
+
+
  </div><!-- fin div vipphoto> -->
 <br><br><br><br>
  <div id="vipab">

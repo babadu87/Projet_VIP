@@ -25,7 +25,7 @@ module.exports.ListerAlbum12 = 	function(request, response){
      }
 
  	response.numV = result;
- 	response.render('listerAlbum12', response);
+ 	response.render('partials/listerAlbum12', response);
  } );
 };
 
@@ -38,7 +38,7 @@ module.exports.ListerAlbum24 = 	function(request, response){
      }
 
  	response.numV = result;
- 	response.render('listerAlbum24', response);
+ 	response.render('partials/listerAlbum24', response);
  } );
 };
 
@@ -51,7 +51,7 @@ module.exports.ListerAlbum36 = 	function(request, response){
      }
 
  	response.numV = result;
- 	response.render('listerAlbum36', response);
+ 	response.render('partials/listerAlbum36', response);
  } );
 };
 
@@ -64,7 +64,7 @@ module.exports.ListerAlbum48 = 	function(request, response){
      }
 
  	response.numV = result;
- 	response.render('listerAlbum48', response);
+ 	response.render('partials/listerAlbum48', response);
  } );
 };
 /*
@@ -135,7 +135,7 @@ module.exports.ListerPhotos2 = function(request, response){
 
 	response.numV = result[0];
 	response.res = result[1];
-	response.render('listerAlbum2', response);
+	response.render('partials/listerAlbum2', response);
 	} );
 }
 
@@ -159,6 +159,6 @@ module.exports.ListerPhotos3 = function(request, response){
 
 	response.numV = result[0];
 	response.res = result[1];
-	response.render('listerAlbum3', response);
+	response.render('partials/listerAlbum3', response);
 	} );
 }

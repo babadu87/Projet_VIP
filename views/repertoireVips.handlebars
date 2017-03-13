@@ -1,16 +1,133 @@
-
-{{#if this.data}}
-	<p>Cliquer sur une autre lettre : {{#each lettres}}
-	<a href= "/repertoire/{{this.lettre}}" >{{this.lettre}} </a></p>
-	{{/each}}
+<script type="text/javascript">
+ 
+$(document).ready(function(){
+ 
+    // Sélectionner tous les liens ayant l'attribut rel valant tooltip
+    $('a').mouseover(function(e) {
+ 
+        // Récupérer la valeur de l'attribut title et l'assigner à une variable
+        var tip = $(this).attr('a');   
+ 
+        // Supprimer la valeur de l'attribut title pour éviter l'infobulle native
+        $(this).attr('a','');
+ 
+        // Insérer notre infobulle avec son texte dans la page
+        $(this).append('<div id="tooltip"><div class="tipHeader"></div><div class="tipBody">' + tip + '</div><div class="tipFooter"></div></div>');    
+ 
+        // Ajuster les coordonnées de l'infobulle
+        $('#tooltip').css('top', e.pageY + 10 );
+        $('#tooltip').css('left', e.pageX + 20 );
+ 
+        // Faire apparaitre l'infobulle avec un effet fadeIn
+        $('#tooltip').fadeIn('500');
+        $('#tooltip').fadeTo('10',0.8);
+ 
+    }).mousemove(function(e) {
+ 
+        // Ajuster la position de l'infobulle au déplacement de la souris
+        $('#tooltip').css('top', e.pageY + 10 );
+        $('#tooltip').css('left', e.pageX + 20 );
+ 
+    }).mouseout(function() {
+ 
+        // Réaffecter la valeur de l'attribut title
+        $(this).attr('title',$('.tipBody').html());
+ 
+        // Supprimer notre infobulle
+        $(this).children('div#tooltip').remove();
+ 
+    });
+ 
+});
+ 
+</script>
+{{#if this.dataL}}
+	{{> ListeLettre}}
+	{{#if this.dataI}}
+		{{# each this.res}}
+		<img src="/images/vip/{{this.image}}">
+		<p>Nom : {{this.nom}} {{this.prenom}}</p>
+		<p>Date de naissance : {{formatDate res.date 'dddd DD MMMM YYYY' }}</p>
+		<p>Qui suis-je? : {{this.texte }}
+		{{#if this.acteur }}
+			{{#ifCond  this.sexe '==' "M"}}
+               <p>Profession : Acteur</p>
+             {{else}}
+               <p>Profession : Actrice</p>
+            {{/ifCond}}
+			<p>Principal(aux) film(s) : 
+			{{# each ../this.resA}}
+				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}} de <a>{{this.nom}} {{this.prenom}})</a></p>
+			{{/each}}
+		{{/if}}
+		{{#if this.couturier }}
+			{{#ifCond  this.sexe '==' "M"}}
+               <p>Profession : Couturier</p>
+             {{else}}
+               <p>Profession : Couturiere</p>
+            {{/ifCond}}
+			<p>Principal(aux) défilé(s) : 
+			{{# each ../this.resCO}}
+				<p>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}})</p>
+			{{/each}}
+		{{/if}}
+		{{#if this.chanteur }}
+			{{#ifCond  this.sexe '==' "M"}}
+               <p>Profession : Chanteur ({{this.cspecialite}})</p>
+             {{else}}
+               <p>Profession : Chanteuse ({{this.cspecialite}})</p>
+            {{/ifCond}}
+			<p>Principal(aux) album(s) : 
+			{{# each ../this.resC}}
+				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}}</p>
+			{{/each}}
+		{{/if}}
+		{{#if this.mannequin }}
+            <p>Profession : Mannequin</p>
+			<p>Principal(aux) défilé(s) : 
+			{{# each ../this.resM}}
+				<p>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}} {{this.prenom}}</p>
+			{{/each}}
+		{{/if}}
+		{{#if this.realisateur }}
+			{{#ifCond  this.sexe '==' "M"}}
+               <p>Profession : Realisateur</p>
+             {{else}}
+               <p>Profession : Realisatrise</p>
+            {{/ifCond}}
+			<p>Principal(aux) film(s) : 
+			{{# each ../this.resR}}
+				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) </p>
+			{{/each}}
+		{{/if}}
+		{{#if ../this.resMa }}
+			<p>Mariage(s) : 
+			{{# each ../this.resMa}}
+				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}} --> {{formatDate this.date 'MMMM YYYY'}}) {{this.lieu}} </p>
+			{{/each}}
+		{{/if}}
+		{{#if ../this.resL }}
+			<p>Liason(s) : 
+			{{# each ../this.resL}}
+				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}}) raison fin liaison {{this.motiffin}} </p>
+			{{/each}}
+		{{/if}}
+		
+		{{#if ../this.resP }}
+			{{# each ../this.resP}}
+				<img src="/images/vip/{{this.address}}">
+			{{/each}}
+		{{/if}}
+		{{/each}}
+	{{else}}
 	{{# each res}}
 		<div style="display: inline-block">
-			<a href= "/repertoire/"><img src="/images/vip/{{this.image}}"></a>
+			<a href= "/repertoire/{{../this.dataL}}/{{this.id}}"><img src="/images/vip/{{this.image}}"></a>
 			<p>{{this.nom}} {{this.prenom}}</p>
 		</div>
 	{{/each}}
+	{{/if}}
 {{else}}
-	Cliquer sur une lettre : {{#each lettres}}
-	<a href= "/repertoire/{{this.lettre}}" >{{this.lettre}} </a>
-{{/each}}
+	{{> ListeLettre}}
+	
 {{/if}}

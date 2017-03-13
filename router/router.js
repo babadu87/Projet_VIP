@@ -18,6 +18,9 @@ module.exports = function(app){
 
 // VIP/lettre
 	app.get('/repertoire/:lettre', VipController.RepertoireLettre)
+	
+// VIP/informationVIP
+	app.get('/repertoire/:lettre/:id', VipController.InformationVIP)
 
 // articles
 	app.get('/articles', ArticlesController.listeNom)

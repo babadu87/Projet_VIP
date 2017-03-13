@@ -11,10 +11,10 @@ module.exports.test = function(callback) {
     });
 };
 
-module.exports.getPremiereLettre = function(callback){
+module.exports.addVip = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT SUBSTRING(VIP_NOM,1,1) as lettre FROM vip order by lettre ASC;";
+			var sql = "INSERT INTO VIP (VIP_NUMERO,NATIONALITE_NUMERO,VIP_NOM,VIP_PRENOM,VIP_SEXE,VIP_NAISSANCE,VIP_TEXTE,VIP_DATE_INSERTION) VALUES();";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();

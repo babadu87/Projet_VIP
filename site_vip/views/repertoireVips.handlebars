@@ -1,91 +1,120 @@
 
 {{#if this.dataL}}
-	{{> ListeLettre}}
+<div id="lettre">
+	<p>{{> ListeLettre}}</p>
+</div> <!-- id="lettre"-->
 	{{#if this.dataI}}
 		{{# each this.res}}
-		<img src="/images/vip/{{this.image}}">
-		<p>Nom : {{this.nom}} {{this.prenom}}</p>
-		<p>Date de naissance : {{formatDate res.date 'dddd DD MMMM YYYY' }}</p>
-		<p>Qui suis-je? : {{this.texte }}
+		<img src="/images/vip/{{this.image}}" id="img1">
+		<div id="infoVip1">
+		<p><b>Nom :</b> {{this.nom}} {{this.prenom}}</p>
+		<p><b>Date de naissance : </b>{{formatDate res.date 'dddd DD MMMM YYYY' }}</p>
+		<p><b>Qui suis-je? :</b> {{this.texte }}
 		{{#if this.acteur }}
 			{{#ifCond  this.sexe '==' "M"}}
-               <p>Profession : Acteur</p>
+               <p><b>Profession :</b> Acteur</p>
              {{else}}
-               <p>Profession : Actrice</p>
+               <p><b>Profession : </b>Actrice</p>
             {{/ifCond}}
-			<p>Principal(aux) film(s) :
+					</div><!-- infovip1 -->
+					<div id="infoVip2">
+						{{#if ../this.resA}}
+			<p><b>Principal(aux) film(s) :</b></p>
+				<ul>
 			{{# each ../this.resA}}
-				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}} de <a>{{this.nom}} {{this.prenom}})</a></p>
+				<li>{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}} de <a>{{this.nom}} {{this.prenom}})</a></li>
 			{{/each}}
+			{{/if}}
+		</ul>
 		{{/if}}
 		{{#if this.couturier }}
 			{{#ifCond  this.sexe '==' "M"}}
-               <p>Profession : Couturier</p>
+               <p><b>Profession :</b> Couturier</p>
              {{else}}
-               <p>Profession : Couturiere</p>
+               <p><b>Profession :</b> Couturiere</p>
             {{/ifCond}}
-			<p>Principal(aux) défilé(s) :
+			<p><b>Principal(aux) défilé(s) :</b></p>
+				<ul>
 			{{# each ../this.resCO}}
-				<p>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}})</p>
+				<li>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}})</li>
 			{{/each}}
+		</ul>
 		{{/if}}
 		{{#if this.chanteur }}
 			{{#ifCond  this.sexe '==' "M"}}
-               <p>Profession : Chanteur ({{this.cspecialite}})</p>
+               <p><b>Profession : </b>Chanteur ({{this.cspecialite}})</p>
              {{else}}
-               <p>Profession : Chanteuse ({{this.cspecialite}})</p>
+               <p><b>Profession :</b> Chanteuse ({{this.cspecialite}})</p>
             {{/ifCond}}
-			<p>Principal(aux) album(s) :
+			<p><b>Principal(aux) album(s) :</b></p>
+			<ul>
 			{{# each ../this.resC}}
-				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}}</p>
+				<li>{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}}</li>
 			{{/each}}
+		</ul>
 		{{/if}}
 		{{#if this.mannequin }}
-            <p>Profession : Mannequin</p>
-			<p>Principal(aux) défilé(s) :
-			{{# each ../this.resM}}
-				<p>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}} {{this.prenom}}</p>
-			{{/each}}
+            <p><b>Profession :</b> Mannequin</p>
+
+			<p><b>Principal(aux) défilé(s) :</b></p>
+			<ul>
+					{{# each ../this.resM}}
+						<li>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}} {{this.prenom}}</li>
+					{{/each}}
+			</ul>
 		{{/if}}
 		{{#if this.realisateur }}
 			{{#ifCond  this.sexe '==' "M"}}
-               <p>Profession : Realisateur</p>
+               <p><b>Profession : </b>Realisateur</p>
              {{else}}
-               <p>Profession : Realisatrise</p>
+               <p><b>Profession : </b>Realisatrise</p>
             {{/ifCond}}
-			<p>Principal(aux) film(s) :
+						{{#if ../this.resR}}
+			<p><b>Principal(aux) film(s) :</b></p>
+				<ul>
 			{{# each ../this.resR}}
-				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) </p>
+				<li>{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) </li>
 			{{/each}}
+			{{/if}}
+		</ul>
 		{{/if}}
 		{{#if ../this.resMa }}
-			<p>Mariage(s) :
+			<p><b>Mariage(s) :</b></p>
+			<ul>
 			{{# each ../this.resMa}}
-				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}} --> {{formatDate this.date 'MMMM YYYY'}}) {{this.lieu}} </p>
+				<li>{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}} --> {{formatDate this.date 'MMMM YYYY'}}) {{this.lieu}} </li>
 			{{/each}}
+		</ul>
 		{{/if}}
 		{{#if ../this.resL }}
-			<p>Liason(s) :
+			<p><b>Liason(s) :</b>
 			{{# each ../this.resL}}
-				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}}) raison fin liaison {{this.motiffin}} </p>
+				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}}) <b>raison fin liaison :</b> {{this.motiffin}} </p>
 			{{/each}}
 		{{/if}}
 
 		{{#if ../this.resP }}
+		<div id="repVip2">
 			{{# each ../this.resP}}
 				<a  href="/images/vip/{{this.address}}" data-lightbox="/images/vip/{{this.address}}" data-title="{{this.title}}"><img src="/images/vip/{{this.address}}"  height="120" width="100"></a>
 			{{/each}}
+		</div><!-- fin div repVip -->
 		{{/if}}
+	</div><!-- infoVip2-->
 		{{/each}}
 	{{else}}
+	<div id="repVip">
 	{{# each res}}
 		<div style="display: inline-block">
 			<a href= "/repertoire/{{../this.dataL}}/{{this.id}}"><img src="/images/vip/{{this.image}}" height="120" width="100"></a>
 			<p>{{this.nom}} {{this.prenom}}</p>
 		</div>
 	{{/each}}
+</div><!-- fin div repVip -->
 	{{/if}}
 {{else}}
-	{{> ListeLettre}}
 
+<div id="lettre">
+	<p>{{> ListeLettre}}</p>
+</div> <!-- id="lettre"-->
 {{/if}}

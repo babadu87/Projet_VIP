@@ -3,13 +3,13 @@
 <p> Une erreur est survenue <a href= "/album/" >cliquer ici ! </a></p>
 
 {{else}}
-	Cliquer sur une image :
-<br><br><br><br>
-		<div id="vipab">
-    {{#each numV}}
-        <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
-    {{/each}}
-	</div><!-- fin div vipab> -->
+<h3>Cliquer sur une image :</h3>
+<br><br>
+	<div id="vipab1">
+	{{#each numV}}
+			<a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+	{{/each}}
+</div><!-- fin div vipab1> -->
     <br><br>
 
 		<button><a href= "/album" >  << Début </a></button>

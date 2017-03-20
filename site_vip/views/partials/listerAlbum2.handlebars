@@ -2,23 +2,23 @@
 
 {{#if  res}}
  {{#each res}}
- <button><a href="/album/{{this.numV}}/1">précédent</a></button>
 
- <br><br><br>
 
-  <div id="vipphoto">
-    <br><br>
-     <p>{{this.nom}} {{this.prenom}}</p><br>
-      <img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"><br>
-     <h1> Commentaire </h1><br>
+ <div id="vipphoto">
+   <a href="/album/{{this.numV}}/1"><button id="pre">précédent</button></a>
+  <h2>{{this.nom}} {{this.prenom}}</h2><br>
+   <div id="photo">
+    <img id="vipAlbum" src="/images/vip/{{this.photo}}" height="250" width="200">
+  </div><!--finphoto-->
+  <a href="/album/{{this.numV}}/3"><button id="suiv">suivant</button></a>
+  <div id="com">
+    <h4> <b>Commentaire :</b></h4>
 
-     <h2> {{this.sujet}}</h2><br>
-     {{this.com}}<br><br>
-     <a href="#"> voir sa fiche</a>
+    <p><b> {{this.sujet}} : </b>{{this.com}}</p>
+    <a href="/repertoire/{{this.lettre}}/{{this.numV}}"> voir sa fiche</a>
+</div><!-- fin com -->
 
-    <br><br><br>
 
-   <button><a href="/album/{{this.numV}}/3">suivant</a></button>
 
       {{/each}}
   {{else}}
@@ -27,26 +27,25 @@
 
 
 
- </div><!-- fin div vipphoto> -->
-<br><br><br><br>
- <div id="vipab">
- {{#each numV}}
-     <a href= "/album/{{this.numV}}/1" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="35" width="35"></a>
- {{/each}}
- </div><!-- fin div vipab> -->
+</div><!-- fin div vipphoto> -->
+<div id="vipab">
+{{#each numV}}
+    <a href= "/album/{{this.numV}}/1" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="50" width="50"></a>
+{{/each}}
+</div><!-- fin div vipab> -->
 
 
 {{else}}
-	Cliquer sur une image :
-<br><br><br><br>
-		<div id="vipab">
-    {{#each numV}}
-        <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
-    {{/each}}
-	</div><!-- fin div vipab> -->
+<h3>Cliquer sur une image :</h3>
+<br><br>
+  <div id="vipab1">
+  {{#each numV}}
+      <a href= "/album/{{this.numV}}/{{this.num}}" ><img id="vipAlbum" src="/images/vip/{{this.photo}}" height="100" width="100"></a>
+  {{/each}}
+</div><!-- fin div vipab1> -->
     <br><br>
-		<button><a href= "/album-2" > Suivant ></a></button>
-		<button><a href= "/album-4" > Fin >> </a></button>
+		<a href= "/album-2" ><button> Suivant ></button></a>
+		<a href= "/album-4" ><button> Fin >></button> </a>
 
 
 {{/if}}

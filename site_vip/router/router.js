@@ -1,14 +1,11 @@
 var HomeController = require('./../controllers/HomeController');
 var VipController = require('./../controllers/VipController');
 var AlbumController = require('./../controllers/AlbumController');
-var TestController = require('./../controllers/TestController');
 var ArticlesController = require('./../controllers/ArticlesController');
 
 // Routes
 module.exports = function(app){
 
-  // tests à supprimer
-    app.get('/test', TestController.Test);
 
 // Main Routes
     app.get('/', HomeController.Index);
@@ -18,7 +15,7 @@ module.exports = function(app){
 
 // VIP/lettre
 	app.get('/repertoire/:lettre', VipController.RepertoireLettre)
-	
+
 // VIP/informationVIP
 	app.get('/repertoire/:lettre/:id', VipController.InformationVIP)
 

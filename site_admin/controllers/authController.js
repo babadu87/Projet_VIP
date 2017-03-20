@@ -24,7 +24,7 @@ module.exports.auth = function(request, response){
     }
 	});
 	
-	response.loginAdmin = result;
+	response.loginAdmin = result[0];
 	response.login = request.body.login;
 	response.pass = request.body.pass;
 	console.log(response.loginAdmin);

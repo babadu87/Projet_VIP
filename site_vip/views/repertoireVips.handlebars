@@ -13,7 +13,7 @@
              {{else}}
                <p>Profession : Actrice</p>
             {{/ifCond}}
-			<p>Principal(aux) film(s) : 
+			<p>Principal(aux) film(s) :
 			{{# each ../this.resA}}
 				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}} de <a>{{this.nom}} {{this.prenom}})</a></p>
 			{{/each}}
@@ -24,7 +24,7 @@
              {{else}}
                <p>Profession : Couturiere</p>
             {{/ifCond}}
-			<p>Principal(aux) défilé(s) : 
+			<p>Principal(aux) défilé(s) :
 			{{# each ../this.resCO}}
 				<p>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}})</p>
 			{{/each}}
@@ -35,14 +35,14 @@
              {{else}}
                <p>Profession : Chanteuse ({{this.cspecialite}})</p>
             {{/ifCond}}
-			<p>Principal(aux) album(s) : 
+			<p>Principal(aux) album(s) :
 			{{# each ../this.resC}}
 				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}}</p>
 			{{/each}}
 		{{/if}}
 		{{#if this.mannequin }}
             <p>Profession : Mannequin</p>
-			<p>Principal(aux) défilé(s) : 
+			<p>Principal(aux) défilé(s) :
 			{{# each ../this.resM}}
 				<p>{{this.lieu}} ({{formatDate this.date 'MMMM YYYY'}}) de {{this.nom}} {{this.prenom}}</p>
 			{{/each}}
@@ -53,39 +53,39 @@
              {{else}}
                <p>Profession : Realisatrise</p>
             {{/ifCond}}
-			<p>Principal(aux) film(s) : 
+			<p>Principal(aux) film(s) :
 			{{# each ../this.resR}}
 				{{this.titre}} ({{formatDate this.date 'MMMM YYYY'}}) </p>
 			{{/each}}
 		{{/if}}
 		{{#if ../this.resMa }}
-			<p>Mariage(s) : 
+			<p>Mariage(s) :
 			{{# each ../this.resMa}}
 				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}} --> {{formatDate this.date 'MMMM YYYY'}}) {{this.lieu}} </p>
 			{{/each}}
 		{{/if}}
 		{{#if ../this.resL }}
-			<p>Liason(s) : 
+			<p>Liason(s) :
 			{{# each ../this.resL}}
 				{{this.vnom}} {{this.vprenom}} ({{formatDate this.date 'MMMM YYYY'}}) raison fin liaison {{this.motiffin}} </p>
 			{{/each}}
 		{{/if}}
-		
+
 		{{#if ../this.resP }}
 			{{# each ../this.resP}}
-				<a  href="/images/vip/{{this.address}}" data-lightbox="/images/vip/{{this.address}}" data-title="{{this.title}}"><img src="/images/vip/{{this.address}}"></a>
+				<a  href="/images/vip/{{this.address}}" data-lightbox="/images/vip/{{this.address}}" data-title="{{this.title}}"><img src="/images/vip/{{this.address}}"  height="120" width="100"></a>
 			{{/each}}
 		{{/if}}
 		{{/each}}
 	{{else}}
 	{{# each res}}
 		<div style="display: inline-block">
-			<a href= "/repertoire/{{../this.dataL}}/{{this.id}}"><img src="/images/vip/{{this.image}}"></a>
+			<a href= "/repertoire/{{../this.dataL}}/{{this.id}}"><img src="/images/vip/{{this.image}}" height="120" width="100"></a>
 			<p>{{this.nom}} {{this.prenom}}</p>
 		</div>
 	{{/each}}
 	{{/if}}
 {{else}}
 	{{> ListeLettre}}
-	
+
 {{/if}}

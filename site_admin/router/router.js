@@ -11,8 +11,8 @@ module.exports = function(app){
 	app.get('/', authController.connexion);
 
 // Connexion/Auth
-	app.post('/auth', authController.auth);
-	
+	app.post('/authentification', authController.auth);
+
 // tout le reste
   app.get('*', HomeController.Index);
   app.post('*', HomeController.Index);

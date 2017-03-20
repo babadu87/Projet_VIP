@@ -11,10 +11,12 @@ module.exports.test = function(callback) {
     });
 };
 
-module.exports.getLogin = function(callback){
+
+module.exports.addVip = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT LOGIN as login, PASSWD as pass FROM parametres;";
+			var sql = "INSERT INTO VIP (VIP_NUMERO,NATIONALITE_NUMERO,VIP_NOM,VIP_PRENOM,VIP_SEXE,VIP_NAISSANCE,VIP_TEXTE,VIP_DATE_INSERTION) VALUES();";
+
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();

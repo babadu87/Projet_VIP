@@ -73,7 +73,7 @@
 		
 		{{#if ../this.resP }}
 			{{# each ../this.resP}}
-				<img data-lightbox="vip "src="/images/vip/{{this.address}}">
+				<a  href="/images/vip/{{this.address}}" data-lightbox="/images/vip/{{this.address}}" data-title="{{this.title}}"><img src="/images/vip/{{this.address}}"></a>
 			{{/each}}
 		{{/if}}
 		{{/each}}

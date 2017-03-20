@@ -11,10 +11,10 @@ module.exports.test = function(callback) {
     });
 };
 
-module.exports.getPremiereLettre = function(callback){
+module.exports.getLogin = function(callback){
 	db.getConnection(function(err,connexion){
 		if (!err) {
-			var sql = "SELECT DISTINCT SUBSTRING(VIP_NOM,1,1) as lettre FROM vip order by lettre ASC;";
+			var sql = "SELECT LOGIN as login, PASSWD as pass FROM parametres;";
 			console.log(sql);
 			connexion.query(sql, callback);
 			connexion.release();

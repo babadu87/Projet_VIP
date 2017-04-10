@@ -1,19 +1,27 @@
 {{#if this.data}}
-
-<p> VIPs : {{#each idV}}
-  <a href= "/articles/{{this.idVIP}}/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
+<div id="ensemble1">
+<div id="listerech">
+<p> VIPs : <br> {{#each idV}}
+  <a href= "/articles/{{this.idVIP}}/{{this.nom}}" >    {{this.nom}} {{this.prenom}} </a></p>
   {{/each}}
-
+</div><!--fin div id list recherche-->
+<div id="articleici">
   <h1> Articles </h1>
-  {{# each res}}
+  {{#if this.res}}
+    {{# each res}}
 
-      <h2> {{this.titre}}</h2>
-      <p>{{this.nom}} {{this.prenom}}</p>
-      {{this.resume}}
-      <a href="#"> voir sa fiche</a>
-  {{/each}}
+        <h2> {{this.titre}}</h2>
+        <p>{{this.nom}} {{this.prenom}}</p>
+        {{this.resume}}<br>
+        <a href="#"> <button>voir sa fiche</button></a>
+    {{/each}}
+  {{else}}
+    <p> Pas d'article pour ce VIP.</p>
+  {{/if}}
 
 
+</div><!-- div fin id article -->
+</div><!-- fin div ensemble 1 -->
 {{else}}
 
 	<p>Choisissez un vip pour voir les articles le concernant</p>
@@ -21,7 +29,7 @@
   <div id="listeNom">
     <p> VIPs : <br>
     {{#each idVIP}}
-    <a href= "/articles/{{this.idVIP}}/{{this.nom}}" >{{this.nom}} {{this.prenom}} </a></p>
+    <a href= "/articles/{{this.idVIP}}/{{this.nom}}" >    {{this.nom}} {{this.prenom}} </a></p>
     {{/each}}
   </div><!-- fin div id=listeNom -->
 

@@ -189,3 +189,27 @@ img{
   margin-top: 1em;
   float: right;
 }
+
+/* ------------------------- Article ---------------------------- */
+#ensemble1{
+  display: inline-block;
+  font-size: 15px;
+}
+#listerech{
+  float: right;
+  border-left: 2px solid black;
+  text-align : right;
+
+}
+
+#articleici{
+  float: left;
+  width : 950px;
+  margin-right: 100px;
+
+}
+
+#listeNom{
+  margin-bottom: 10px;
+
+}
